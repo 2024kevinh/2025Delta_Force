@@ -4,16 +4,16 @@
 
 {% block content %}
 <h2>Meet the Operators</h2>
+
 <ul>
-    <li><strong>Vyron</strong> – Assault</li>
-    <li><strong>D-Wolf</strong> – Assault</li>
-    <li><strong>Nox</strong> – Assault</li>
-    <li><strong>Stinger</strong> – Support</li>
-    <li><strong>Toxik</strong> – Support</li>
-    <li><strong>Sheperd</strong> – Engineer</li>
-    <li><strong>Uluru</strong> – Engineer</li>
-    <li><strong>Sineva</strong> – Engineer</li>
-    <li><strong>Luna</strong> – Recon</li>
-    <li><strong>Hackclaw</strong> – Recon</li>
+    {% for operator in operators %}
+    <li>
+        <strong>{{ operator.name }}</strong> – {{ operator.info }} (Country: {{ operator.country_name }})
+        {% if operator.abilities %}
+            <p>Abilities: {{ ", ".join(operator.abilities) }}</p>
+        {% endif %}
+    </li>
+    {% endfor %}
 </ul>
+
 {% endblock %}
